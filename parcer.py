@@ -580,11 +580,11 @@ def main(argv):
                             print("Not all meshes are volumes!")        
 
        
-        create_ngsi_ld_attribute(room_dictionary,"DoorsInRoom",doors_of_room,"Relationship") 
+        create_ngsi_ld_attribute(room_dictionary,"doorsInRoom",doors_of_room,"Relationship") 
                       
         create_ngsi_ld_attribute(room_dictionary,"windowsInRoom",windows_of_room,"Relationship")
         
-        create_ngsi_ld_attribute(room_dictionary,"StairsInRoom",stairs_of_room,"Relationship")      
+        create_ngsi_ld_attribute(room_dictionary,"stairsInRoom",stairs_of_room,"Relationship")      
         create_ngsi_ld_attribute(room_dictionary,"numberOfDoors",num_of_doors,"Property")
         create_ngsi_ld_attribute(room_dictionary,"numberOfWindows",num_of_windows,"Property")
 
