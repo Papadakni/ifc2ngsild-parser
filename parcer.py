@@ -567,11 +567,17 @@ def main(argv):
                         trimesh_of_stair=trimesh.base.Trimesh(vertices=grouped_verts2,faces=grouped_faces2) 
                         stairs_of_floor.setdefault(room.Decomposes[0][4][0],[]).append(trimesh_of_stair)
                         stairs_of_floor_id.setdefault(room.Decomposes[0][4][0],[]).append(stair.GlobalId)
-                        touching=trimesh.boolean.intersection([trimesh_of_room,trimesh_of_stair],"blender")
-                        print(touching)
-                        if (touching.is_empty == False):
-                            print("Stairs found")
-                            stairs_of_room.append("urn:ngsi-ld:Stair:Test:SmartCitiesdomain:SmartBuildings:"+ stair.GlobalId)
+                        if trimesh_of_room.is_volume and trimesh_of_stair.is_volume:
+                            
+                            
+                            touching = trimesh.boolean.intersection([trimesh_of_room, trimesh_of_stair], "blender")
+                            
+                            print(touching)
+                            if (touching.is_empty == False):
+                                print("Stairs found")
+                                stairs_of_room.append("urn:ngsi-ld:Stair:Test:SmartCitiesdomain:SmartBuildings:"+ stair.GlobalId)
+                        else:
+                            print("Not all meshes are volumes!")        
 
        
         create_ngsi_ld_attribute(room_dictionary,"DoorsInRoom",doors_of_room,"Relationship") 

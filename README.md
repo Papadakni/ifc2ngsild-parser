@@ -2,6 +2,7 @@
 
 parcer.py is a program that generates NGSI-LD instances of buildings (floors, rooms, windows, doors) from an .ifc file using the IfcOpenShell and Shapely libraries.
 
+(NOTE: It could be that the .ifc file provided doesn't contain the appropriate relationships in order to find corellations between rooms with windows, doors etc.. In that case you should enable the experimental geometrical comparison function be running the parser with the -t flag)
 
 ## Docker image
 
@@ -30,7 +31,7 @@ python parcer.py -f <filename> [-t] [-d]
 ### Arguments
 
 * `-f` or `--file`: Specifies the name of the input .ifc file to use/convert.
-* `-t` or `--test`: Enables internal testing parameters.
+* `-t` or `--test`: Enables internal experimental functions.
 * `-h` or `--help`: Displays the usage message.
 * `-d` or `--2D`: Changes the result from 3D to 2D. Note that this option has some issues, so the default 3D is preferred.
 
